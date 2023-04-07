@@ -67,19 +67,20 @@ int rtt(int *seqp, int recvport, float *ms_delay)
 		*ms_delay = 0;	/* not in table.. */
 		status = 0;	/* we don't know if it's DUP */
 	}
-    printf("\n\nSANITY CHECK in rtt.c FAILED!\n");
-    printf("- seqnum = %d\n", *seqp);
-    printf("- status = %d\n", status);
-    printf("- get_usec() = %ld\n", (long int) get_usec());
-    printf("- delaytable.usec = %ld\n",
-           (long int) delaytable[tablepos].usec);
-    printf("- usec_delay = %ld\n", usec_delay);
-    printf("- time(NULL) = %ld\n", (long int) time(NULL));
-    printf("- delaytable.sec = %ld\n",
-           (long int) delaytable[tablepos].sec);
-    printf("- sec_delay = %ld\n", sec_delay);
-    printf("- ms_delay = %f\n", *ms_delay);
-    printf("END SANITY CHECK REPORT\n\n");
+    printf("timestampSec=%ld\ttimestampUsec=%ld\t",(long int) delaytable[tablepos].sec,(long int) delaytable[tablepos].usec));
+//    printf("\n\nSANITY CHECK in rtt.c FAILED!\n");
+//    printf("- seqnum = %d\n", *seqp);
+//    printf("- status = %d\n", status);
+//    printf("- get_usec() = %ld\n", (long int) get_usec());
+//    printf("- delaytable.usec = %ld\n",
+//           (long int) delaytable[tablepos].usec);
+//    printf("- usec_delay = %ld\n", usec_delay);
+//    printf("- time(NULL) = %ld\n", (long int) time(NULL));
+//    printf("- delaytable.sec = %ld\n",
+//           (long int) delaytable[tablepos].sec);
+//    printf("- sec_delay = %ld\n", sec_delay);
+//    printf("- ms_delay = %f\n", *ms_delay);
+//    printf("END SANITY CHECK REPORT\n\n");
 	/* SANITY CHECK */
 	if (*ms_delay < 0)
 	{

@@ -254,7 +254,7 @@ int recv_icmp(void *packet, size_t size)
 		status = rtt(&icmp_seq, 0, &ms_delay);
 		log_ip(status, icmp_seq);
 
-		printf("icmp_seq=%d rtt=%.3f ms\n", icmp_seq, ms_delay);
+		printf("icmp_seq=%d\trtt=%.3f ms\n", icmp_seq, ms_delay);
 		if (icmp.type == ICMP_TIMESTAMPREPLY) {
 			if ((size - ICMPHDR_SIZE) >= 12)
 				log_icmp_ts(packet+ICMPHDR_SIZE);
@@ -321,7 +321,7 @@ int recv_udp(void *packet, size_t size)
 		status = rtt(&sequence, ntohs(udp.uh_dport), &ms_delay);
 		if (!opt_quiet) {
 			log_ip(status, sequence);
-			printf("seq=%d rtt=%.3f ms\n", sequence, ms_delay);
+			printf("seq=%d\trtt=%.3f ms\n", sequence, ms_delay);
 		}
 		if (opt_incdport && !opt_force_incdport)
 			dst_port++;
@@ -386,12 +386,12 @@ int recv_tcp(void *packet, size_t size)
 		if (flags[0] == '\0')    strcat(flags, "none");
 
 		log_ip(status, sequence);
-		printf("sport=%d flags=%s seq=%d win=%d rtt=%.3f ms\n",
+		printf("sport=%d\tflags=%s\tseq=%d\twin=%d\trtt=%.3f ms\n",
 			ntohs(tcp.th_sport), flags, sequence,
 			ntohs(tcp.th_win), ms_delay);
 
 		if (opt_verbose) {
-			printf("seq=%lu ack=%lu sum=%x urp=%u\n\n",
+			printf("seq=%lu\tack=%lu\tsum=%x\turp=%u\n\n",
 					(unsigned long) ntohl(tcp.th_seq),
 					(unsigned long) ntohl(tcp.th_ack),
 					tcp.th_sum, ntohs(tcp.th_urp));
