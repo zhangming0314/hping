@@ -71,7 +71,7 @@ int rtt(int *seqp, int recvport, float *ms_delay)
     printf("- seqnum = %d\n", *seqp);
     printf("- status = %d\n", status);
     printf("- get_usec() = %ld\n", (long int) get_usec());
-    printf("- delaytable.usec = %ld\n",yong
+    printf("- delaytable.usec = %ld\n",
            (long int) delaytable[tablepos].usec);
     printf("- usec_delay = %ld\n", usec_delay);
     printf("- time(NULL) = %ld\n", (long int) time(NULL));
