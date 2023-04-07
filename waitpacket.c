@@ -174,12 +174,12 @@ void log_ip(int status, int sequence)
 		rel_id = relativize_id(sequence, &ip_id);
 	else
 		rel_id = 0;
-	printf("len=%d ip=%s ttl=%d %sid%s%d ", ip_size, inet_ntoa(src),
+	printf("len=%d\tip=%s\tttl=%d\t%sid%s%d\t", ip_size, inet_ntoa(src),
 			ip.ttl,
 			(ntohs(ip.frag_off) ? "DF " : ""),
 			(rel_id ? "=+" : "="), ip_id);
 	if (opt_verbose && !opt_quiet)
-		printf("tos=%x iplen=%u\n", ip.tos, htons(ip.tot_len));
+		printf("tos=%x\tiplen=%u\n", ip.tos, htons(ip.tot_len));
 }
 
 void log_icmp_ts(void *ts)
