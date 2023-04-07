@@ -67,7 +67,7 @@ int rtt(int *seqp, int recvport, float *ms_delay)
 		*ms_delay = 0;	/* not in table.. */
 		status = 0;	/* we don't know if it's DUP */
 	}
-    printf("timestampSec=%ld\ttimestampUsec=%ld\t",(long int) delaytable[tablepos].sec,(long int) delaytable[tablepos].usec));
+    printf("timestampSec=%ld\ttimestampUsec=%ld\t",(long int) delaytable[tablepos].sec,(long int) delaytable[tablepos].usec);
 //    printf("\n\nSANITY CHECK in rtt.c FAILED!\n");
 //    printf("- seqnum = %d\n", *seqp);
 //    printf("- status = %d\n", status);
